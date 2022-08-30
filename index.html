@@ -3,7 +3,7 @@
 <head>
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
 
-<style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+<link href='https://fonts.loli.net/css?family=Merriweather:900,900italic,300,300italic&subset=latin-ext' rel='stylesheet' type='text/css' /><link href='https://fonts.loli.net/css?family=Lato:900,300&subset=latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
 .mac-os-11 { --title-bar-height:28px; }
 html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
 body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
@@ -201,28 +201,72 @@ mark .md-meta { color: rgb(0, 0, 0); }
 .md-inline-math-container mjx-container { zoom: 0.95; }
 
 
-html {
-	font-size: 19px;
+@include-when-export url(https://fonts.loli.net/css?family=Merriweather:900,900italic,300,300italic&subset=latin-ext);
+@include-when-export url(https://fonts.loli.net/css?family=Lato:900,300&subset=latin-ext);
+
+:root {
+	--control-text-color: #777;
 }
 
-html, body {
-	margin: auto;
-	background: #fefefe;
-	-webkit-font-smoothing: antialiased;
+/**
+ * forked from pixyll.com
+ * MIT license
+ */
+
+h1,
+.h1,
+.f1 {
+	font-size: 2rem;
+	line-height: 2.5rem;
 }
+h2,
+.h2,
+.f2 {
+	font-size: 1.5rem;
+	line-height: 2rem;
+}
+h3,
+.h3,
+.f3 {
+	font-size: 1.25rem;
+	line-height: 1.5rem;
+}
+p,
+.p,
+.f4,
+h4,
+h5,
+h6,
+dl,
+ol,
+ul,
+pre[cid],
+div[cid],
+#typora-source {
+	font-size: 1.125rem;
+	line-height: 1.5rem;
+}
+
+h4 {
+	font-size: 1.13rem;
+}
+/*
+ Pixyll
+ A simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff.
+ Best served with BASSCSS (http://jxnblk.github.io/basscss)
+ Crafted with <3 by John Otander (@4lpine) - ©2015 John Otander MIT License http://opensource.org/licenses/MIT
+
+*/
+
 body {
-	font-family: "Vollkorn", Palatino, Times;
-	color: #333;
-	line-height: 1.4;
-	text-align: justify;
+	font-family: "Merriweather", "PT Serif", Georgia, "Times New Roman", "STSong", 'Segoe UI Emoji', Serif;
+	line-height: 1.5rem;
+	font-weight: 400;
 }
 
 #write {
-	max-width: 960px;
-	margin: 0 auto;
-	margin-bottom: 2em;
-	line-height: 1.53;
-	padding-top: 40px;
+	max-width: 914px;
+	color: #333;
 }
 
 @media only screen and (min-width: 1400px) {
@@ -231,223 +275,354 @@ body {
 	}
 }
 
-@media print {
-	html {
-		font-size: 13px;
+@media only screen and (min-width: 1700px) {
+	#write {
+		max-width: 1200px;
 	}
 }
 
-/* Typography
--------------------------------------------------------- */
-
-#write>h1:first-child,
-h1 {
-	margin-top: 1.6em;
-	font-weight: normal;
+img {
+	width: auto;
+	max-width: 100%;
+}
+body {
+	font-size: 1.5rem;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
 }
 
-h1 {
-	font-size:3em;
-}
-
-h2 {
-	margin-top:2em;
-	font-weight: normal;
-}
-
-h3 {
-	font-weight: normal;
-	font-style: italic;
-	margin-top: 3em;
-}
-
-h1, 
-h2, 
-h3{
-	text-align: center;
-}
-
-h2:after{
-	border-bottom: 1px solid #2f2f2f;
-    content: '';
-    width: 100px;
-    display: block;
-    margin: 0 auto;
-    height: 1px;
-}
-
-h1+h2, h2+h3 {
-	margin-top: 0.83em;
-}
-
-p,
-.mathjax-block {
-	margin-top: 0;
-	-webkit-hypens: auto;
-	-moz-hypens: auto;
-	hyphens: auto;
-}
-ul {
-	list-style: square;
-	padding-left: 1.2em;
-}
-ol {
-	padding-left: 1.2em;
-}
-blockquote {
-	margin-left: 1em;
-	padding-left: 1em;
-	border-left: 1px solid #ddd;
-}
-code,
-pre {
-	font-family: "Consolas", "Menlo", "Monaco", monospace, serif;
-	font-size: .9em;
-	background: white;
-}
-.md-fences{
-	margin-left: 1em;
-	padding-left: 1em;
-	border: 1px solid #ddd;
-	padding-bottom: 8px;
-	padding-top: 6px;
-	margin-bottom: 1.5em;
-}
-
-a {
-	color: #2484c1;
-	text-decoration: none;
-}
-a:hover {
-	text-decoration: underline;
-}
-a img {
-	border: none;
-}
-h1 a,
-h1 a:hover {
-	color: #333;
-	text-decoration: none;
-}
-hr {
-	color: #ddd;
-	height: 1px;
-	margin: 2em 0;
-	border-top: solid 1px #ddd;
-	border-bottom: none;
-	border-left: 0;
-	border-right: 0;
-}
 .ty-table-edit {
 	background: #ededed;
-    padding-top: 4px;
 }
+
 table {
-	margin-bottom: 1.333333rem
+	width: 100%;
+	font-size: 1.125rem;
 }
-table th,
-table td {
-	padding: 8px;
-	line-height: 1.333333rem;
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td,
+table > tfoot > tr > th,
+table > tfoot > tr > td {
+	padding: 12px;
+	line-height: 1.2;
 	vertical-align: top;
-	border-top: 1px solid #ddd
+	border-top: 1px solid #333;
 }
-table th {
-	font-weight: bold
+table > thead > tr > th {
+	vertical-align: bottom;
+	border-bottom: 2px solid #333;
 }
-table thead th {
-	vertical-align: bottom
+table > caption + thead > tr:first-child > th,
+table > caption + thead > tr:first-child > td,
+table > colgroup + thead > tr:first-child > th,
+table > colgroup + thead > tr:first-child > td,
+table > thead:first-child > tr:first-child > th,
+table > thead:first-child > tr:first-child > td {
+	border-top: 0;
 }
-table caption+thead tr:first-child th,
-table caption+thead tr:first-child td,
-table colgroup+thead tr:first-child th,
-table colgroup+thead tr:first-child td,
-table thead:first-child tr:first-child th,
-table thead:first-child tr:first-child td {
-	border-top: 0
+table > tbody + tbody {
+	border-top: 2px solid #333;
 }
-table tbody+tbody {
-	border-top: 2px solid #ddd
+p {
+	font-weight: 300;
+	line-height: 1.5;
+}
+abbr {
+	border-bottom: 1px black dotted;
+	cursor: help;
+}
+pre,
+code {
+	font-family: Menlo, Monaco, "Courier New", monospace;
+}
+
+code,
+.md-fences  {
+	color: #7a7a7a;
+}
+
+.md-fences {
+	padding: 1.125em;
+	margin-bottom: 0.88em;
+	font-size: 1rem;
+	border: 1px solid #7a7a7a;
+	padding-bottom: 0.5rem;
+	padding-top: 0.5rem;
+}
+
+blockquote {
+	padding: 1.33em;
+	font-style: italic;
+	border-left: 5px solid #7a7a7a;
+	color: #555;
+}
+blockquote em {
+	color: #000;
+}
+blockquote footer {
+	font-size: .85rem;
+	font-style: normal;
+	background-color: #fff;
+	color: #7a7a7a;
+	border-color: transparent;
+}
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+	font-family: "Lato", 'Helvetica Neue', Helvetica, sans-serif;
+	font-weight: bold;
+	line-height: 1.2;
+	margin: 1em 0 0.5em;
+}
+@media screen and (min-width: 48em) {
+	.h1,
+	h1 {
+		font-size: 3.250rem;
+	}
+	.h2,
+	h2 {
+		font-size: 2.298rem;
+	}
+	.h3,
+	h3 {
+		font-size: 1.625rem;
+	}
+	.h4,
+	h4 {
+		font-size: 1.3rem;
+	}
+	#write>h4.md-focus:before,
+	#write>h5.md-focus:before,
+	#write>h6.md-focus:before{
+		top: 1px;
+	}
+	.p,
+	p,
+	li {
+		font-size: 1.25rem;
+		line-height: 1.8;
+	}
+	table {
+		font-size: 1.25rem;
+	}
+}
+@media (max-width: 48em) {
+	blockquote {
+		margin-left: 1rem;
+		margin-right: 0;
+		padding: 0.5em;
+	}
+	.h1,
+	h1 {
+		font-size: 2.827rem;
+	}
+	.h2,
+	h2 {
+		font-size: 1.999rem;
+	}
+	.h3,
+	h3 {
+		font-size: 1.413rem;
+	}
+	.h4,
+	h4 {
+		font-size: 1.3rem;
+	}
+}
+@media screen and (min-width: 64em) {
+	.h1,
+	h1 {
+		font-size: 4.498rem;
+	}
+	.h2,
+	h2 {
+		font-size: 2.29rem;
+	}
+	.h3,
+	h3 {
+		font-size: 1.9rem;
+	}
+	.h4,
+	h4 {
+		font-size: 1.591rem;
+	}
+	#write>h4.md-focus:before{
+		top:4px;
+	}
+}
+a {
+	color: #463F5C;
+	text-decoration: underline;
+}
+
+#write {
+	padding-top: 2rem;
+}
+
+#write pre.md-meta-block {
+	min-height: 35px;
+	padding: 0.5em 1em;
+	white-space: pre;
+	border: 0px;
+
+	border-left: 30px #f8f8f8 solid;
+	border-right: 30px #f8f8f8 solid;
+	width: 100vw;
+	max-width: calc(100% + 60px);
+
+	margin-left: -30px;
+	margin-bottom: 2em;
+	margin-top: -2010px;
+	padding-top: 2000px;
+	padding-bottom: 10px;
+	line-height: 1.5em;
+	color: #7a7a7a;
+	background-color: #fafafa;
+	font-family: 'Lato', 'Helvetica Neue', Helvetica, sans-serif;
+	font-weight: 300;
+	clear: both;
+	padding-left: 0;
+	font-size:1.125rem;
+}
+.md-image>.md-meta {
+	color: #463F5C
+}
+.footnotes {
+	font-size:1.1rem;
+}
+.md-tag {
+	font-family: 'Lato', 'Helvetica Neue', Helvetica, sans-serif;
+}
+.code-tooltip {
+	background: white;
+}
+.code-tooltip-content {
+	font-size: 1.1rem;
 }
 
 .task-list{
-	padding:0;
+	padding-left: 0;
 }
 
 .md-task-list-item {
-	padding-left: 1.6rem;
+	padding-left:34px;
 }
 
-.md-task-list-item > input:before {
-	content: '\221A';
-	display: inline-block;
-	width: 1.33333333rem;
-  	height: 1.6rem;
-	vertical-align: middle;
-	text-align: center;
-	color: #ddd;
-	background-color: #fefefe;
+.md-task-list-item > input{
+	width: 1.25rem;
+	height: 1.25rem;
+	display: block;
+	-webkit-appearance: initial;
+	top: -0.2rem;
+	margin-left: -1.6em;
+	margin-top: calc(1rem - 7px);
+	border: none;
+}
+
+.md-task-list-item > input:focus{
+	outline: none;
+	box-shadow: none;
+}
+
+.md-task-list-item > input:before{
+	border: 1px solid #555;
+	border-radius: 1.5rem;
+	width: 1.5rem;
+	height: 1.5rem;
+	background: #fff;
+	content: ' ';
+	transition: background-color 200ms ease-in-out;
+	display: block;
 }
 
 .md-task-list-item > input:checked:before,
 .md-task-list-item > input[checked]:before{
-	color: inherit;
+	background: #333;
+	border-width: 2px;
+	display:inline-block;
+	transition: background-color 200ms ease-in-out;
 }
+
+.md-task-list-item > input:checked:after,
+.md-task-list-item > input[checked]:after {
+	opacity: 1;
+}
+
+.md-task-list-item > input:after {
+	opacity: 1;
+	-webkit-transition: opacity 0.05s ease-in-out;
+	-moz-transition: opacity 0.05s ease-in-out;
+	transition: opacity 0.05s ease-in-out;
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+	position: absolute;
+	top: 0.4375rem;
+	left: 0.28125rem;
+	width: 0.9375rem;
+	height: 0.5rem;
+	border: 3px solid #fff;
+	border-top: 0;
+	border-right: 0;
+	content: ' ';
+	opacity: 0;
+}
+
 .md-tag {
-	color: inherit;
-	font: inherit;
-}
-#write pre.md-meta-block {
-	min-height: 35px;
-	padding: 0.5em 1em;
-}
-#write pre.md-meta-block {
-	white-space: pre;
-	background: #f8f8f8;
-	border: 0px;
-	color: #999;
-	
-	width: 100vw;
-	max-width: calc(100% + 60px);
-	margin-left: -30px;
-	border-left: 30px #f8f8f8 solid;
-	border-right: 30px #f8f8f8 solid;
-
-	margin-bottom: 2em;
-	margin-top: -1.3333333333333rem;
-	padding-top: 26px;
-	padding-bottom: 10px;
-	line-height: 1.8em;
-	font-size: 0.9em;
-	font-size: 0.76em;
-	padding-left: 0;
-}
-.md-img-error.md-image>.md-meta{
-	vertical-align: bottom;
-}
-#write>h5.md-focus:before {
-	top: 2px;
+	color:inherit;
 }
 
-.md-toc {
-	margin-top: 40px;
+.md-toc:focus .md-toc-content{
+	margin-top: 19px;
 }
 
-.md-toc-content {
-	padding-bottom: 20px;
+#typora-sidebar {
+	font-size:1rem !important;
+}
+
+.html-for-mac #typora-sidebar {
+	background-color:white;
+}
+
+.outline-content li, .outline-content ul {
+	font-size:1rem !important;
+}
+
+.outline-title {
+	line-height: inherit;
+	margin-top: 10px;
+}
+
+.outline-expander {
+	width: 18px;
 }
 
 .outline-expander:before {
-	color: inherit;
-	font-size: 14px;
-	top: auto;
-	content: "\f0da";
-	font-family: FontAwesome;
+ 	content: "+";
+	font-family: inherit;
+	color: rgb(108, 108, 108); 
+  font-size: 1.5rem;
+ 	top: -0.1rem;
 }
 
-.outline-expander:hover:before,
-.outline-item-open>.outline-item>.outline-expander:before {
-  	content: "\f0d7";
+.outline-expander:hover:before {
+	content: "+";
+}
+
+.outline-item-open>.outline-item>.outline-expander:before{
+	content: "-";
 }
 
 /** source code mode */
@@ -456,9 +631,8 @@ table tbody+tbody {
     color: #6A6A6A;
 }
 
-.html-for-mac #typora-sidebar {
-    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+.os-windows #typora-source {
+	font-family: inherit;
 }
 
 .cm-s-typora-default .cm-header, 
@@ -471,23 +645,19 @@ table tbody+tbody {
 	color: #777777;
 }
 
-.typora-node .file-list-item-parent-loc, 
-.typora-node .file-list-item-time, 
-.typora-node .file-list-item-summary {
-	font-family: arial, sans-serif;
-}
-
-.md-task-list-item>input {
-    margin-left: -1.3em;
-    margin-top: calc(1rem - 12px);
+.md-diagram-panel {
+	margin-top: 24px;
+	margin-left: -1.2em;
 }
 
 .md-mathjax-midline {
 	background: #fafafa;
 }
 
-.md-fences .code-tooltip {
-	bottom: -2em !important;
+.enable-diagrams pre.md-fences[lang="sequence"] .code-tooltip,
+.enable-diagrams pre.md-fences[lang="flow"] .code-tooltip,
+.enable-diagrams pre.md-fences[lang="mermaid"] .code-tooltip {
+    bottom: -3.4em;
 }
 
 .dropdown-menu .divider {
@@ -498,6 +668,6 @@ table tbody+tbody {
 </style><title>MC SG</title>
 </head>
 <body class='typora-export os-windows'><div class='typora-export-content'>
-<div id='write'  class=''><h1 id='我的世界暮色森林'><span>我的世界暮色森林</span></h1><h1 id='专用服务器游戏指南'><span>专用服务器游戏指南</span></h1><h2 id='安装java'><span>安装JAVA</span></h2><p><a href='https://javadl.oracle.com/webapps/download/AutoDL?BundleId=246808_424b9da4b48848379167015dcc250d8d'><span>JAVA8 64位</span></a></p><h2 id='启动器下载'><span>启动器下载</span></h2><p><a href='download\HMCL.exe'><span>Hello Minecraft Launcher</span></a></p><p><span>后续的游戏本体会自动安装在启动器所在的目录内，所以请把启动器移动到你想要的位置！</span></p><h2 id='游戏安装'><span>游戏安装</span></h2><ul><li><p><span>添加离线角色</span></p><p><img src="img\create_character.gif" referrerpolicy="no-referrer" alt="create_character"></p></li><li><p><span>开启游戏版本隔离</span></p><p><img src="img\iso_version.gif" referrerpolicy="no-referrer" alt="iso_version"></p></li><li><p><span>切换下载源</span></p><p><img src="img\change_src.gif" referrerpolicy="no-referrer" alt="change_src"></p></li><li><p><span>安装游戏本体 </span><strong><span>1.19.2</span></strong><span> 与 </span><strong><span>Forge 43.1.1</span></strong><span> </span></p><p><img src="img\install_mc_forge.gif" referrerpolicy="no-referrer" alt="install_mc_forge"></p></li><li><p><span>安装本服务器规定的必要模组</span><strong><span>（建议安装一样的版本！避免出错）</span></strong></p><p><span>启动器的 </span><strong><span>模组管理</span></strong><span> 页面可以很方便的搜索和下载各种模组包。</span></p><p><img src="img\install_mod.gif" referrerpolicy="no-referrer" alt="install_mod"></p><ul><li><span>Balm-4.5.3</span></li><li><span>Patchouli-1.19.2-76</span></li><li><span>Twilightforest-1.19-4.2.1381-universal</span></li><li><span>Waystones-forge-1.19-11.1.0</span></li></ul></li><li><p><span>大功告成！赶紧加入专用服务器开始游戏吧！</span></p><p><span>点击右下角的</span><strong><span>启动游戏</span></strong><span>，然后进入多人游戏界面，添加一个服务器，服务器地址为</span></p><p><em><strong><span>nerekihs.asuscomm.com</span></strong></em></p><p>&nbsp;</p></li></ul><h2 id='可选）其他模组推荐'><span>（可选）其他模组推荐</span></h2><ul><li><p><strong><span>（强烈推荐）</span></strong><span>小地图 </span><strong><span>Xaeros Minimap</span></strong></p></li><li><p><strong><span>（强烈推荐）</span></strong><span>M键世界地图 </span><strong><span>Xaeros WorldMap</span></strong></p></li><li><p><span>自定义皮肤补丁 </span><strong><span>CustomSkinLoader</span></strong><span> （后面有详细教程）</span></p></li><li><p><span>光影模组 </span><strong><span>Rubidium</span></strong><span> 和 </span><strong><span>Oculus</span></strong><span> （后面有详细教程）</span></p><p>&nbsp;</p></li></ul><h2 id='可选）材质包安装'><span>（可选）材质包安装</span></h2><p><span>启动器的 </span><strong><span>模组管理-下载-资源包</span></strong><span> 页面可以很方便的搜索和下载各种材质包，材质压缩包存放在游戏目录的 </span><strong><span>resourcepacks</span></strong><span> 目录内。在游戏中可以按 </span><strong><span>ESC</span></strong><span> 进入菜单随时切换材质包。这里只推荐几款比较好用的材质包，自行安装。</span></p><p><img src="img\install_res.gif" referrerpolicy="no-referrer" alt="install_res"></p><p>&nbsp;</p><ul><li><p><span>Xray 系列材质包</span></p><p><span>该材质用于高效挖矿，开启后可以透视矿石。</span></p><p><img src="img\xray.png" referrerpolicy="no-referrer" alt="xray"></p><p>&nbsp;</p></li><li><p><span>Kate R1</span></p><p><span>本人最常用的材质包，纹理非常细腻，有动态效果，甚至可以看到草丛随风摇动，搭配光影效果更好，比较吃配置。</span></p><p><img src="img\kater1.png" referrerpolicy="no-referrer" alt="kater1"></p><p>&nbsp;</p></li><li><p><span>Optimum Realism</span></p><p><span>仿现代风格的材质包，这款也可以尝试一下。比较有特色的是他也会同时替换你的游戏界面和菜单。</span></p></li></ul><p>&nbsp;</p><h2 id='可选）光影包安装'><span>（可选）光影包安装</span></h2><p><img src="img\seus-shaders-5.webp" referrerpolicy="no-referrer" alt="seus-shaders-5"></p><p><span>因为 </span><strong><span>暮色森林</span></strong><span> 模组与 </span><strong><span>Optifine高清修复</span></strong><span> 组件兼容性不好，所以我们采用 </span><strong><span>Sodium/Rubidium</span></strong><span> 方案。其中 </span><strong><span>Sodium</span></strong><span> 一般搭配 </span><strong><span>Fabric</span></strong><span> 使用，而我们使用的是互斥的 </span><strong><span>Forge</span></strong><span>，因此使用其移植版本 </span><strong><span>铷Rubidium</span></strong><span>。</span></p><ol start='' ><li><span>使用启动器安装 </span><strong><span>Rubidium</span></strong><span> 和 </span><strong><span>Oculus</span></strong></li><li><span>在游戏目录下找到 </span><strong><span>shaderpacks</span></strong><span> 文件夹，若没有可以自己创建</span></li><li><span>在网上下载喜欢的光影包，存放在 </span><strong><span>shaderpacks</span></strong><span> 目录下即可</span></li></ol><p><span>这里提供一个比较有名的光影包 </span><strong><span>SEUS</span></strong></p><p><a href='download\SEUS-Renewed-Shaders-All-Versions-Standard.zip'><span>SEUS-Renewed-Shaders-All-Versions-Standard.zip</span></a></p><h2 id='可选）自定义皮肤'><span>（可选）自定义皮肤</span></h2><ol start='' ><li><p><span>以HMCL启动器为例，首先添加一个离线角色，例如 </span><strong><span>Pandanima</span></strong></p></li><li><p><span>打开角色右侧的</span><strong><span>上传皮肤</span></strong><span>，选择 </span><strong><span>LittleSkin</span></strong></p></li><li><p><span>在 </span><a href='https://littleskin.cn/'><span>LittleSkin</span></a><span> 官网注册账号，角色管理中创建与游戏中</span><strong><span>同名</span></strong><span>的角色</span></p></li><li><p><span>在网站的皮肤库中挑选喜欢的皮肤，或自己上传皮肤，最后应用到已创建的角色</span></p></li><li><p><span>等待一段时间，在启动器的角色面板刷新几次即可看到新皮肤</span></p></li><li><p><span>使用启动器安装模组 </span><strong><span>CustomSkinLoader</span></strong><span>，只有都安装了模组的玩家才能互相看见对方的皮肤，否则只能看到自己的</span></p><p><img src="img\custon_skin.gif" referrerpolicy="no-referrer" alt="custon_skin"></p></li></ol><p>&nbsp;</p></div></div>
+<div id='write'  class=''><h1 id='steinsgates-minecraft-manual'><span>SteinsGate&#39;s Minecraft Manual</span></h1><h2 id='java-环境安装'><span>JAVA 环境安装</span></h2><p><a href='https://javadl.oracle.com/webapps/download/AutoDL?BundleId=246808_424b9da4b48848379167015dcc250d8d'><span>ORACLE JAVA8 64位</span></a></p><p>&nbsp;</p><h2 id='启动器下载'><span>启动器下载</span></h2><p><a href='http://121.4.75.135:88/download/HMCL.exe'><span>Hello Minecraft Launcher</span></a></p><p><span>后续的游戏本体会自动安装在启动器所在的目录内，所以请把启动器移动到你想要的目录内再启动！</span></p><p>&nbsp;</p><h2 id='游戏安装'><span>游戏安装</span></h2><ul><li><p><span>添加离线角色</span></p><p><img src="http://121.4.75.135:88/img/create_character.gif" referrerpolicy="no-referrer" alt="create_character"></p></li><li><p><span>开启游戏版本隔离</span></p><p><img src="http://121.4.75.135:88/img/iso_version.gif" referrerpolicy="no-referrer" alt="iso_version"></p></li><li><p><span>切换下载源</span></p><p><img src="http://121.4.75.135:88/img/change_src.gif" referrerpolicy="no-referrer" alt="change_src"></p></li><li><p><span>安装游戏本体 </span><strong><span>1.19.2</span></strong><span> 与 </span><strong><span>Forge 43.1.1</span></strong><span> </span></p><p><img src="http://121.4.75.135:88/img/install_mc_forge.gif" referrerpolicy="no-referrer" alt="install_mc_forge"></p></li><li><p><span>安装本服必要模组</span><strong><span>（建议安装一样的版本！避免出错）</span></strong></p><p><span>启动器的 </span><strong><span>模组管理</span></strong><span> 页面可以很方便的搜索和下载各种模组包。</span></p><p><img src="http://121.4.75.135:88/img/install_mod.gif" referrerpolicy="no-referrer" alt="install_mod"></p><ul><li><span>Balm-4.5.3</span></li><li><span>Patchouli-1.19.2-76</span></li><li><span>Twilightforest-1.19-4.2.1381-universal</span></li><li><span>Waystones-forge-1.19-11.1.0</span></li></ul></li><li><p><span>大功告成！赶紧加入专用服务器开始游戏吧！</span></p><p><span>点击右下角的</span><strong><span>启动游戏</span></strong><span>，然后进入多人游戏界面，添加一个服务器，服务器地址为</span></p><p><u><em><strong><span>mc-server.shikeren.cn</span></strong></em></u></p><p><span>游戏特色：原版生存 + 暮色森林 + 传送石/传送石碑 + 允许高频红石</span></p><p>&nbsp;</p></li></ul><h2 id='可选）其他模组推荐'><span>（可选）其他模组推荐</span></h2><ul><li><p><strong><span>（强烈推荐）</span></strong><span>小地图 </span><strong><span>Xaeros Minimap</span></strong></p></li><li><p><strong><span>（强烈推荐）</span></strong><span>M键世界地图 </span><strong><span>Xaeros WorldMap</span></strong></p></li><li><p><span>自定义皮肤补丁 </span><strong><span>CustomSkinLoader</span></strong><span> （后面有详细教程）</span></p></li><li><p><span>光影模组 </span><strong><span>Rubidium</span></strong><span> 和 </span><strong><span>Oculus</span></strong><span> （后面有详细教程）</span></p><p>&nbsp;</p></li></ul><h2 id='可选）材质包安装'><span>（可选）材质包安装</span></h2><p><span>启动器的 </span><strong><span>模组管理-下载-资源包</span></strong><span> 页面可以很方便的搜索和下载各种材质包，材质压缩包存放在游戏目录的 </span><strong><span>resourcepacks</span></strong><span> 目录内。在游戏中可以按 </span><strong><span>ESC</span></strong><span> 进入菜单随时切换材质包。这里只推荐几款比较好用的材质包，自行安装。</span></p><p><img src="http://121.4.75.135:88/img/install_res.gif" referrerpolicy="no-referrer" alt="install_res"></p><p>&nbsp;</p><ul><li><p><span>Xray 系列材质包</span></p><p><span>该材质用于高效挖矿，开启后可以透视矿石。</span></p><p><img src="http://121.4.75.135:88/img/xray.png" referrerpolicy="no-referrer" alt="xray"></p><p>&nbsp;</p></li><li><p><span>Kate R1</span></p><p><span>本人最常用的材质包，纹理非常细腻，有动态效果，甚至可以看到草丛随风摇动，搭配光影效果更好，比较吃配置。</span></p><p><img src="http://121.4.75.135:88/img/kater1.png" referrerpolicy="no-referrer" alt="kater1"></p><p>&nbsp;</p></li><li><p><span>Optimum Realism</span></p><p><span>仿现代风格的材质包，比较有特色的是也会同时替换你的游戏界面和菜单。</span></p></li></ul><p>&nbsp;</p><h2 id='可选）光影包安装'><span>（可选）光影包安装</span></h2><p><img src="http://121.4.75.135:88/img/seus-shaders-5.webp" referrerpolicy="no-referrer" alt="seus-shaders-5"></p><p><span>因为 </span><strong><span>暮色森林</span></strong><span> 模组与 </span><strong><span>Optifine高清修复</span></strong><span> 组件兼容性不好，所以我们采用 </span><strong><span>Sodium/Rubidium</span></strong><span> 方案。其中 </span><strong><span>Sodium</span></strong><span> 一般搭配 </span><strong><span>Fabric</span></strong><span> 使用，而我们使用的是互斥的 </span><strong><span>Forge</span></strong><span>，因此使用其移植版本 </span><strong><span>铷Rubidium</span></strong><span>。</span></p><ol start='' ><li><span>使用启动器安装 </span><strong><span>Rubidium</span></strong><span> 和 </span><strong><span>Oculus</span></strong></li><li><span>在游戏目录下找到 </span><strong><span>shaderpacks</span></strong><span> 文件夹，若没有可以自己创建</span></li><li><span>在网上下载喜欢的光影包，存放在 </span><strong><span>shaderpacks</span></strong><span> 目录下即可</span></li></ol><p><span>这里提供一个比较有名的光影包 </span><strong><span>SEUS</span></strong></p><p><a href='http://121.4.75.135:88/download/SEUS-Renewed-Shaders-All-Versions-Standard.zip'><span>SEUS-Renewed-Shaders-All-Versions-Standard.zip</span></a></p><p>&nbsp;</p><h2 id='可选）自定义皮肤'><span>（可选）自定义皮肤</span></h2><ol start='' ><li><p><span>打开角色右侧的</span><strong><span>上传皮肤</span></strong><span>，选择 </span><strong><span>LittleSkin</span></strong></p></li><li><p><span>在 </span><a href='https://littleskin.cn/'><span>LittleSkin</span></a><span> 官网注册账号，角色管理中创建与游戏中</span><strong><span>同名</span></strong><span>的角色</span></p></li><li><p><span>在网站的皮肤库中挑选喜欢的皮肤，或自己上传皮肤，最后应用到已创建的角色</span></p></li><li><p><span>等待一段时间，在启动器的角色面板刷新几次即可看到新皮肤</span></p></li><li><p><span>使用启动器安装模组 </span><strong><span>CustomSkinLoader</span></strong><span>，只有都安装了模组的玩家才能互相看见对方的皮肤，否则只能看到自己的</span></p><p><img src="http://121.4.75.135:88//img/custon_skin.gif" referrerpolicy="no-referrer" alt="custon_skin"></p></li></ol><p>&nbsp;</p></div></div>
 </body>
 </html>
